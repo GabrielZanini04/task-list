@@ -1,59 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task List (Laravel 10)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicação CRUD simples construída com Laravel 10 para gerenciar tarefas. Este repositório foi usado em um contexto de aprendizagem e demonstra funcionalidades básicas do framework com Tailwind CSS e Alpine.js.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🛠️ Tecnologias Utilizadas
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **PHP 8.x**
+- **Laravel 10** (MVC framework)
+- **Tailwind CSS** para estilização utilitária
+- **Alpine.js** para interatividade leve (fechar mensagens flash)
+- **SQLite/MySQL** (configurável em `.env`) para banco de dados
+- **Composer** para gerenciamento de dependências
+- **Vite** como build tool para assets
+- **PHPUnit** para testes unitários/funcionais
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 Como rodar o projeto
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/GabrielZanini04/task-list.git
+   cd task-list
+   ```
+2. Instale as dependências PHP e JavaScript:
+   ```bash
+   composer install
+   npm install
+   ```
+3. Configure o ambiente:
+   - Copie `.env.example` para `.env`.
+   - Ajuste as credenciais do banco (`DB_CONNECTION`, `DB_HOST`, etc.).
+   - Gere a chave do aplicativo:
+     ```bash
+     php artisan key:generate
+     ```
+4. Execute migrações e seeders (se houver):
+   ```bash
+   php artisan migrate
+   php artisan db:seed
+   ```
+5. Compile assets (modo desenvolvimento):
+   ```bash
+   npm run dev
+   ```
+6. Inicie o servidor de desenvolvimento:
+   ```bash
+   php artisan serve
+   ```
+7. Acesse `http://localhost:8000` no navegador.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+> Se estiver usando Docker ou Laragon, ajuste os comandos conforme necessário.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📁 Estrutura do Projeto
 
-### Premium Partners
+- `app/` – lógica de aplicação (Models, Controllers, Requests)
+- `resources/views/` – views Blade para interface
+- `routes/web.php` – rotas principais
+- `database/migrations/` – definições de tabelas
+- `tests/` – casos de teste de exemplo
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 💡 Técnicas e Padrões Demonstrados
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Uso de controllers e requests para validação.
+- Templates Blade com slots e componentes simples.
+- Exibição de mensagens flash com Alpine.js para interação e Tailwind para estilos.
+- Organização de CSS utilitário via `@apply` em estilos internos.
+- Uso de factories para geração de dados de teste.
+- Convenções RESTful para rotas de CRUD.
+- Testes básicos com PHPUnit para garantir comportamento.
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📦 Dependências Principais
 
-## Security Vulnerabilities
+```json
+// exemplo retirado de composer.json
+"require": {
+    "php": "^8.1.0",
+    "fideloper/proxy": "^4.4",
+    "fruitcake/laravel-cors": "^2.0",
+    "laravel/framework": "^10.0",
+    "laravel/sanctum": "^3.2",
+    "laravel/tinker": "^2.8"
+},
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+"devDependencies": {
+    "laravel/pint": "^1.0",
+    "phpunit/phpunit": "^10.0"
+}
+```
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## ✔️ Contribuições
+
+Este é um projeto de aprendizado. Sinta-se livre para abrir issues ou pull requests com melhorias, correções ou novas funcionalidades.
+
+---
+
+## 📄 Licença
+
+Sem licença específica. Utilize conforme desejar.
